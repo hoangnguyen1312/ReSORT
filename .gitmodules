@@ -1,0 +1,15 @@
+[submodule "detector"]
+	path = detector
+	url = git@gitlab.com:face-services/detector.git
+[submodule "tracker/extractor"]
+	path = tracker/extractor
+	url = git@gitlab.com:face-services/extractor.git
+[submodule "tracker/sort"]
+	path = tracker/sort
+	url = git@gitlab.com:face-services/sort.git
+[submodule "tracker/arcsort"]
+	path = tracker/arcsort
+	url = git@gitlab.com:face-services/arcsort.git
+[submodule "tracker/deepsort"]
+	path = tracker/deepsort
+	url = git@gitlab.com:face-services/deepsort.git
