@@ -38,7 +38,7 @@ class JsonLoader(object):
         change_id_dict = {}
         for key, values in list(json_dict.items())[1:]:
             if len(values) > 0:
-                if self.tracker.find("arc") != -1:
+                if self.tracker.find("re") != -1:
                     recover_id_dict = values[-1]
                     if bool(recover_id_dict["is_recover"]):
                         change_id_dict[key] = recover_id_dict   
@@ -59,7 +59,7 @@ class JsonLoader(object):
             list_active_frame_matrix = np.full([0, 6], np.nan)
         else:
             list_active_frame_matrix = np.array(list_active_frame)
-            if self.tracker.find("arc") != -1 and list_active_frame_matrix.shape[1] == 7:
+            if self.tracker.find("re") != -1 and list_active_frame_matrix.shape[1] == 7:
                 list_state_time_since_update = list_active_frame_matrix[:, [2, 3, 4, 5, 0, 1, 6]][:, -3:]
                 list_active_frame_matrix = list_active_frame_matrix[:, :-1]
         list_active_frame_matrix = list_active_frame_matrix[:, [0, 2, 3, 4, 5, 1]]
