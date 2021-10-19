@@ -22,4 +22,9 @@ python demo.py --video <PATH OF VIDEO> \
                --save_video True \
                --vis_thres 0.8
 ```
-
+--video : Path to the video. Default: "data/multi_cam.mp4"
+--tracker: Select "sort", "resort" or "deepsort". Default: "sort"
+--network: Backbone network "mobile0.25" or "resnet50". Default: "resnet50"
+--scale: Scaling of the FPS counter. Default: 1
+E.g: new_fps = old_fps / scale 
+--save_video: Return output which is a video named "output.avi". Default: True
