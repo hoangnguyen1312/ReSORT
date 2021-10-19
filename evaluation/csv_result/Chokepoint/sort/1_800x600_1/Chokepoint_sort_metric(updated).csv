@@ -1,0 +1,2 @@
+,recall,precision,mota,motp,mostly_tracked,partially_tracked,mostly_lost,num_switches,num_fragmentations,num_false_positives,num_misses,num_ascend,num_transfer,num_migrate,inference_time,execution_time,num_groundtruth,fi,ti,num_mostly_true,num_partially_true,num_mostly_false,num_migrate_tracked_id,num_true_recovery,num_false_recovery
+0,0.9786641929499073,0.854020507285483,0.7970570202329859,0.07081400889433109,27,0,0,52,34,541,69,52,0,0,6.2898129019886255,1047.5184436514974,3262,0.5200126063662149,0.47147809643870153,5,22,0,0,0,0
