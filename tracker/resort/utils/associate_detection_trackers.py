@@ -1,5 +1,5 @@
 import numpy as np
-from tracker.arcsort.utils.iou import iou
+from tracker.resort.utils.iou import iou
 from scipy.optimize import linear_sum_assignment as linear_assignment
 # from sklearn.utils.linear_assignment_ import linear_assignment
 
