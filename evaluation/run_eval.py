@@ -218,7 +218,7 @@ class Eval(object):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description = 'Conduct to evaluate')
     parser.add_argument('--data_name', default='Chokepoint', type=str, help='Access dataset folder')
-    parser.add_argument('--tracker', default="arcsort", type=str, help='Access dataset folder')
+    parser.add_argument('--tracker', default="sort", type=str, help='Access dataset folder')
     parser.add_argument('--scale', default=1, type=float, help='Access dataset folder')
     parser.add_argument('--width', type=int, help='Access dataset folder')
     parser.add_argument('--height', type=int, help='Access dataset folder')
