@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on 17/04/2021 8:38 AM
-
-@author: Soan Duong, ORCID: https://orcid.org/0000-0002-2092-0088
-"""
-# Standard library imports
 import os
 import random
 import warnings

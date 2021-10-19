@@ -32,9 +32,10 @@ parser.add_argument('--scale', default=1)
 parser.add_argument('--threshold', default=0.44)
 args = parser.parse_args()
 
-# if args.dataset_name == "Chokepoint":
-#     lst_subfolders = sorted(glob2.glob("dataset/{}/*/".format(args.dataset_name)))
+if args.dataset_name == "Chokepoint":
+    lst_subfolders = sorted(glob2.glob("dataset/{}/*/".format(args.dataset_name)))
 path = "dataset/Chokepoint/chokepoint"
+
 lst_subfolders = load_images_chokepoint(path)
 def load_tracker(tracker, max_age=1, min_hits=3, iou_threshold=0.3):
     mot_tracker = None

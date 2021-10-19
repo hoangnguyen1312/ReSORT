@@ -158,7 +158,7 @@ class Eval(object):
         self.official_metrics.update(pymot_metric_dict)
     
     def __proc_reid_metric(self):
-        # self.events_tracking.to_csv("arcsort_chokepoint.csv")
+        # self.events_tracking.to_csv("resort_chokepoint.csv")
         id_metric = self.reid_metric(self.events_tracking, self.change_recover_id)
         id_metric_dict = id_metric.update()
         self.official_metrics.update(id_metric_dict)

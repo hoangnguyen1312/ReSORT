@@ -38,34 +38,47 @@ def convert_detection_to_tracker(dets, vis_thres, w, h):
     return detections, facial_landmarks
 
 
-def draw_box_resort_trackers(img_raw, trackers):
+def draw_box_resort_trackers(img_raw, trackers, frame_width, frame_height):
     for tracker in trackers:
         x1, y1, x2, y2 = int(float(tracker[0])), int(float(tracker[1])), int(float(tracker[2])), int(float(tracker[3]))
-        id = str(int(float(tracker[-3]))) + '_' + str(tracker[-1])
+        if x2 >= frame_width or y2 >= frame_height:
+            continue
+        if x1 < 0 or y1 < 0:
+            continue
+        
+        id = str('resort: ') +  str(int(float(tracker[-3])))
 
         cv2.rectangle(img_raw, (x1, y1), (x2, y2), (255, 0, 0), 2)
-        cv2.putText(img_raw, id, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1,(255,255,255),2)
+        cv2.putText(img_raw, id, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.75,(255,255,255),2)
     return img_raw
     
 
-def draw_box_sort_trackers(img_raw, trackers):
+def draw_box_sort_trackers(img_raw, trackers, frame_width, frame_height):
     for tracker in trackers:
         x1, y1, x2, y2 = int(float(tracker[0])), int(float(tracker[1])), int(float(tracker[2])), int(float(tracker[3]))
-        id = str(int(float(tracker[-1])))
+        if x2 >= frame_width or y2 >= frame_height:
+            continue
+        if x1 < 0 or y1 < 0:
+            continue
+        id = str('sort: ') + str(int(float(tracker[-1])))
         cv2.rectangle(img_raw, (x1, y1), (x2, y2), (255, 0, 0), 2)
-        cv2.putText(img_raw, id, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1,(255,255,255),2)
+        cv2.putText(img_raw, id, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.75,(255,255,255),2)
     return img_raw
 
 
-def draw_box_deepsort_trackers(img_raw, trackers, detections_class):
+def draw_box_deepsort_trackers(img_raw, trackers, detections_class, frame_width, frame_height):
     if trackers is None or detections_class is None:
         return img_raw
     for track in trackers.tracks:
         if not track.is_confirmed() or track.time_since_update > 1:
             continue
         bbox = track.to_tlbr() 
-        id_num = str(track.track_id)
+        id_num = str('deepsort: ') + str(track.track_id)
         x1, y1, x2, y2 = int(bbox[0]), int(bbox[1]), int(bbox[2]), int(bbox[3])
+        if x2 >= frame_width or y2 >= frame_height:
+            continue
+        if x1 < 0 or y1 < 0:
+            continue
         cv2.rectangle(img_raw, (x1, y1), (x2, y2), (255, 0, 0), 2)
-        cv2.putText(img_raw, id_num, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1,(255,255,255),2)
+        cv2.putText(img_raw, id_num, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.75,(255,255,255),2)
     return img_raw
